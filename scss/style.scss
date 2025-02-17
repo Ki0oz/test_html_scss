@@ -1,0 +1,464 @@
+$primary-color: #d8d8d8;
+$secondary-color: #4a4a4a;
+$link-color: #4a90e2;
+
+
+html{
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: $primary-color;
+  max-width: 1920px;
+  margin: 0 auto;
+  border: 1px solid $primary-color;
+  font-size: 1.8rem;
+}
+
+header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  padding: 0 24px;
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 16px;
+
+    i{
+      display: none;
+    }
+
+    a {
+      font-size: 1.8rem;
+      text-decoration: none;
+      color: $secondary-color;
+    }
+  }
+}
+
+.hero, .content, .courses, .media {
+  padding: 32px 24px;
+}
+
+.hero {
+  display: flex;
+  gap: 24px;
+  background-color: $primary-color;
+
+  .hero-image {
+    width: 60%;
+    text-align: right;
+    img { max-width: 100%; height: auto; }
+  }
+
+  .hero-text {
+    color: $secondary-color;
+    width: 25%;
+    align-self: center;
+    h1 { font-size: 5rem; padding-bottom: 24px}
+    p { font-size: 2.4rem; margin-bottom: 24px; }
+    button {
+      color: white;
+      background-color: $secondary-color;
+      padding: 8px;
+      width: 100%;
+      font-size: 1.8rem;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover{
+        background-color: $link-color;
+      }
+    }
+  }
+}
+
+.content {
+  display: flex;
+  background: white;
+  color: $secondary-color;
+
+  .card {
+    width: 60%;
+    padding: 32px 24px;
+    img { width: 100%; }
+    h2 { font-size: 3.6rem; margin: 32px 0 24px; }
+    p { font-size: 1.8rem; }
+    .author { padding-top: 24px; }
+  }
+
+  .line { border-right: 1px solid $primary-color; }
+  .sidebar {
+    width: 40%;
+    padding: 18px 0 32px;
+    .item {
+      padding: 16px;
+      border-bottom: 1px solid $primary-color;
+      display: flex;
+      font-size: 1.8rem;
+      .item-img {
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-right: 12px;
+        width: 272px;
+        height: clamp(100px, 22vh, 272px);
+      }
+
+      .img-1 {background-image: url("../source/images/information-orientation.jpg");}
+      .img-2 {background-image: url("../source/images/information-campus.jpg");}
+      .img-3 {background-image: url("../source/images/information-guest-lecture.jpg");}
+
+      .card-text {
+        margin: 0 auto;
+        align-self: center;
+        line-height: 36px;
+        h3 { font-size: 2.4rem; }
+        a { text-decoration: none; color: $link-color; }
+      }
+    }
+    .item:nth-child(3) { background-color: $primary-color; }
+  }
+}
+
+.courses {
+  text-align: center;
+  background-color: $primary-color;
+  h2 { color: $secondary-color; font-size: 3.6rem; }
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 32px 72px;
+    gap: 32px;
+    a{
+      text-decoration: none;
+    .course-card {
+      background: white;
+      text-align: left;
+      img { width: 100%; }
+      .courses-text {
+        padding: 16px;
+        color: $secondary-color;
+        h3 { font-size: 2.2rem; }
+          p:nth-child(2){ padding: 8px 0; }
+      }
+    }
+  }
+  }
+}
+
+.media-sec {
+  h2 { color: $secondary-color; font-size: 3.6rem; text-align: center; padding-top: 32px; }
+  .media-blog {
+    display: flex;
+    background: white;
+    color: $secondary-color;
+    .media {
+      width: 60%;
+      padding: 32px 24px;
+      position: relative;
+        iframe{ width: 100%; height: 600px;}
+        h2 { font-size: 36px; margin: 32px 0 24px; text-align: left; }
+        p { font-size: 1.8rem; }
+    }
+  }
+  .sidebar {
+    width: 40%;
+    padding: 32px 0;
+    .item {
+      padding: 16px;
+      display: flex;
+      font-size: 1.8rem;
+      .item-img { width: 35%; }
+      .card-text {
+        margin: 0 auto;
+        align-self: center;
+        line-height: 36px;
+        padding-left: 12px;
+        h3 { font-size: 2.4rem; }
+        a { text-decoration: none; color: $link-color; }
+      }
+    }
+    .item:nth-child(1) { background-color: $primary-color; }
+  }
+}
+
+footer{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+
+
+    .footer-list ul{
+      list-style: none;
+      display: flex;
+      gap: 16px;
+
+        a{
+          text-decoration: none;
+          color: $primary-color;
+        }
+    }
+}
+@media (max-width: 1380px) {
+  .hero {
+    .hero-text {
+      width: 35%;
+
+      h1 {
+        font-size: 4rem;
+      }
+    }
+  }
+
+  .content {
+    .sidebar {
+      .item {
+        .card-text {
+          line-height: 26px;
+          padding-left: 12px;
+        }
+      }
+    }
+  }
+
+  .media {
+    .sidebar {
+      .item {
+        .card-text {
+          line-height: 26px;
+          padding-left: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 980px) {
+  .hero {
+    .hero-text {
+      h1 {
+        font-size: 3.6rem;
+      }
+
+      p {
+        font-size: 1.8rem;
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  .content {
+    .card {
+      display: none;
+    }
+
+    .sidebar {
+      width: 100%;
+      padding: 18px 0 32px;
+
+      .item {
+        flex-wrap: wrap;
+
+        img {
+          width: 100%;
+        }
+
+        .card-text {
+          width: 100%;
+        }
+
+        .item-img {
+          width: 100%;
+          height: 272px;
+          margin-right: 0;
+        }
+
+        &:nth-child(3) {
+          background-color: white;
+        }
+      }
+
+      .line {
+        border-right: 0;
+      }
+
+      padding: 0;
+    }
+  }
+
+  .content .line {
+    border-right: 0;
+  }
+
+  .courses {
+    .courses-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .media-sec {
+    .sidebar {
+      display: none;
+    }
+
+    .media-blog {
+      .media {
+        width: 100%;
+      }
+    }
+  }
+
+  .content-text {
+    display: none;
+  }
+}
+
+.content {
+  .sidebar {
+    .item {
+
+      border-bottom: 0;
+
+      &.img-1 {
+        background-image: url("../source/images/information-orientation-mobile.jpg");
+      }
+
+      &.img-2 {
+        background-image: url("../source/images/information-campus-mobile.jpg");
+      }
+
+      &.img-3 {
+        background-image: url("../source/images/information-guest-lecture-mobile.jpg");
+      }
+
+      .card-text {
+        line-height: 36px;
+        padding: 18px 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 760px) {
+
+  header .navbar {
+    justify-content: center;
+
+    .logo{display: none;}
+    nav ul {
+      align-items: end;
+      gap: 60px;
+
+      li{
+        display: none;
+      }
+
+      i{
+        display: flex;
+        justify-content: space-between;
+      }
+
+    }
+  }
+
+  .hero {
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 0;
+
+    .hero-text {
+      width: 100%;
+      padding: 32px 16px;
+
+      h1 {
+        font-size: 3rem;
+        padding-bottom: 32px;
+        line-height: 40px;
+      }
+
+      button {
+        padding: 14px;
+      }
+    }
+
+    .hero-image {
+      width: 100%;
+
+      img {
+        height: 320px;
+        width: 100%;
+      }
+    }
+  }
+
+  .courses {
+    background-color: white;
+
+    h2 {
+      padding-top: 32px;
+      font-size: 2.4rem;
+      border-top: 1px solid $primary-color;
+    }
+
+    .courses-grid {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 32px 16px;
+      gap: 8px;
+
+      a {
+        .course-card {
+          img {
+            display: none;
+          }
+
+          .courses-text {
+            transition: 0.3s;
+            background-color: $primary-color;
+
+            &:hover {
+              background-color: $link-color;
+            }
+
+            p {
+              display: none;
+            }
+
+            h3 {
+              font-size: 1.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .media-sec {
+    .media-blog {
+      .media {
+        padding: 32px 0;
+      }
+    }
+
+    h2 {
+      padding-top: 32px;
+      font-size: 2.4rem;
+      border-top: 1px solid $primary-color;
+    }
+  }
+
+  .company,
+  footer .footer-list ul a {
+    font-size: 1.2rem;
+  }
+}
