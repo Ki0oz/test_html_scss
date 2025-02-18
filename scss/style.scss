@@ -2,14 +2,19 @@ $primary-color: #d8d8d8;
 $secondary-color: #4a4a4a;
 $link-color: #4a90e2;
 
-
-html{
+html {
   font-size: 62.5%;
 }
 
 * {
   margin: 0;
   padding: 0;
+}
+
+
+%text-style {
+  color: $secondary-color;
+  font-size: 1.8rem;
 }
 
 body {
@@ -33,7 +38,7 @@ header .navbar {
     display: flex;
     gap: 16px;
 
-    i{
+    i {
       display: none;
     }
 
@@ -49,10 +54,14 @@ header .navbar {
   padding: 32px 24px;
 }
 
-.hero {
+%hero-style {
   display: flex;
   gap: 24px;
   background-color: $primary-color;
+}
+
+.hero {
+  @extend %hero-style;
 
   .hero-image {
     width: 60%;
@@ -61,10 +70,11 @@ header .navbar {
   }
 
   .hero-text {
-    color: $secondary-color;
+    @extend %text-style;
     width: 25%;
     align-self: center;
-    h1 { font-size: 5rem; padding-bottom: 24px}
+
+    h1 { font-size: 5rem; padding-bottom: 24px; }
     p { font-size: 2.4rem; margin-bottom: 24px; }
     button {
       color: white;
@@ -75,7 +85,8 @@ header .navbar {
       border: none;
       cursor: pointer;
       transition: 0.3s;
-      &:hover{
+
+      &:hover {
         background-color: $link-color;
       }
     }
@@ -85,28 +96,29 @@ header .navbar {
 .content {
   display: flex;
   background: white;
-  color: $secondary-color;
 
   .card {
     width: 60%;
     padding: 32px 24px;
     img { width: 100%; }
     h2 { font-size: 3.6rem; margin: 32px 0 24px; }
-    p { font-size: 1.8rem; }
+    p { @extend %text-style; }
     .author { padding-top: 24px; }
   }
 
   .line { border-right: 1px solid $primary-color; }
+
   .sidebar {
     width: 40%;
     padding: 18px 0 32px;
+
     .item {
       padding: 16px;
       border-bottom: 1px solid $primary-color;
       display: flex;
       font-size: 1.8rem;
-      .item-img {
 
+      .item-img {
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -115,18 +127,16 @@ header .navbar {
         height: clamp(100px, 22vh, 272px);
       }
 
-      .img-1 {background-image: url("../source/images/information-orientation.jpg");}
-      .img-2 {background-image: url("../source/images/information-campus.jpg");}
-      .img-3 {background-image: url("../source/images/information-guest-lecture.jpg");}
-
       .card-text {
         margin: 0 auto;
         align-self: center;
         line-height: 36px;
+
         h3 { font-size: 2.4rem; }
         a { text-decoration: none; color: $link-color; }
       }
     }
+
     .item:nth-child(3) { background-color: $primary-color; }
   }
 }
@@ -134,90 +144,101 @@ header .navbar {
 .courses {
   text-align: center;
   background-color: $primary-color;
-  h2 { color: $secondary-color; font-size: 3.6rem; }
+
+  h2 {
+    @extend %text-style;
+    font-size: 3.6rem;
+  }
+
   .courses-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 32px 72px;
     gap: 32px;
-    a{
+
+    a {
       text-decoration: none;
-    .course-card {
-      background: white;
-      text-align: left;
-      img { width: 100%; }
-      .courses-text {
-        padding: 16px;
-        color: $secondary-color;
-        h3 { font-size: 2.2rem; }
-          p:nth-child(2){ padding: 8px 0; }
+
+      .course-card {
+        background: white;
+        text-align: left;
+
+        img { width: 100%; }
+
+        .courses-text {
+          padding: 16px;
+          @extend %text-style;
+
+          h3 { font-size: 2.2rem; }
+          p:nth-child(2) { padding: 8px 0; }
+        }
       }
     }
-  }
   }
 }
 
 .media-sec {
-  h2 { color: $secondary-color; font-size: 3.6rem; text-align: center; padding-top: 32px; }
+  h2 {
+    @extend %text-style;
+    font-size: 3.6rem;
+    text-align: center;
+    padding-top: 32px;
+  }
+
   .media-blog {
     display: flex;
     background: white;
-    color: $secondary-color;
-    .media {
-      width: 60%;
-      padding: 32px 24px;
-      position: relative;
-        iframe{ width: 100%; height: 600px;}
-        h2 { font-size: 36px; margin: 32px 0 24px; text-align: left; }
-        p { font-size: 1.8rem; }
-    }
+    @extend %text-style;
   }
+
   .sidebar {
     width: 40%;
     padding: 32px 0;
+
     .item {
       padding: 16px;
       display: flex;
       font-size: 1.8rem;
+
       .item-img { width: 35%; }
+
       .card-text {
         margin: 0 auto;
         align-self: center;
         line-height: 36px;
         padding-left: 12px;
+
         h3 { font-size: 2.4rem; }
         a { text-decoration: none; color: $link-color; }
       }
     }
+
     .item:nth-child(1) { background-color: $primary-color; }
   }
 }
 
-footer{
+footer {
   display: flex;
   justify-content: space-between;
   padding: 0 24px;
 
+  .footer-list ul {
+    list-style: none;
+    display: flex;
+    gap: 16px;
 
-    .footer-list ul{
-      list-style: none;
-      display: flex;
-      gap: 16px;
-
-        a{
-          text-decoration: none;
-          color: $primary-color;
-        }
+    a {
+      text-decoration: none;
+      color: $primary-color;
     }
+  }
 }
+
 @media (max-width: 1380px) {
   .hero {
     .hero-text {
       width: 35%;
-
-      h1 {
-        font-size: 4rem;
-      }
+      h1 { font-size: 4rem; }
     }
   }
 
@@ -327,7 +348,6 @@ footer{
 .content {
   .sidebar {
     .item {
-
       border-bottom: 0;
 
       &.img-1 {
@@ -351,24 +371,22 @@ footer{
 }
 
 @media (max-width: 760px) {
-
   header .navbar {
     justify-content: center;
 
-    .logo{display: none;}
+    .logo { display: none; }
     nav ul {
       align-items: end;
       gap: 60px;
 
-      li{
+      li {
         display: none;
       }
 
-      i{
+      i {
         display: flex;
         justify-content: space-between;
       }
-
     }
   }
 
