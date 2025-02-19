@@ -2,19 +2,26 @@ $primary-color: #d8d8d8;
 $secondary-color: #4a4a4a;
 $link-color: #4a90e2;
 
-html {
-  font-size: 62.5%;
+@mixin adaptive-text($min, $max) {
+  font-size: clamp($min, 2vw, $max);
 }
+
+h1 {
+  @include adaptive-text(36px, 58px);
+}
+
+h2 {
+  @include adaptive-text(20px, 36px);
+}
+
+p {
+  @include adaptive-text(14px, 18px);
+}
+
 
 * {
   margin: 0;
   padding: 0;
-}
-
-
-%text-style {
-  color: $secondary-color;
-  font-size: 1.8rem;
 }
 
 body {
@@ -23,7 +30,6 @@ body {
   max-width: 1920px;
   margin: 0 auto;
   border: 1px solid $primary-color;
-  font-size: 1.8rem;
 }
 
 header .navbar {
@@ -38,12 +44,12 @@ header .navbar {
     display: flex;
     gap: 16px;
 
-    i {
+    i{
       display: none;
     }
 
     a {
-      font-size: 1.8rem;
+
       text-decoration: none;
       color: $secondary-color;
     }
@@ -54,39 +60,33 @@ header .navbar {
   padding: 32px 24px;
 }
 
-%hero-style {
-  display: flex;
+.hero {
+  display: grid;
+  grid-template-columns: 60% 40%;
   gap: 24px;
   background-color: $primary-color;
-}
-
-.hero {
-  @extend %hero-style;
 
   .hero-image {
-    width: 60%;
     text-align: right;
     img { max-width: 100%; height: auto; }
   }
 
   .hero-text {
-    @extend %text-style;
-    width: 25%;
+    color: $secondary-color;
     align-self: center;
-
-    h1 { font-size: 5rem; padding-bottom: 24px; }
-    p { font-size: 2.4rem; margin-bottom: 24px; }
+    width: 80%;
+    h1 { padding-bottom: 24px}
+    p { margin-bottom: 24px; }
     button {
       color: white;
       background-color: $secondary-color;
       padding: 8px;
       width: 100%;
-      font-size: 1.8rem;
+
       border: none;
       cursor: pointer;
       transition: 0.3s;
-
-      &:hover {
+      &:hover{
         background-color: $link-color;
       }
     }
@@ -94,49 +94,57 @@ header .navbar {
 }
 
 .content {
-  display: flex;
+  display: grid;
+  grid-template-columns: 60% 1% 40%;
   background: white;
+  color: $secondary-color;
 
   .card {
-    width: 60%;
-    padding: 32px 24px;
     img { width: 100%; }
-    h2 { font-size: 3.6rem; margin: 32px 0 24px; }
-    p { @extend %text-style; }
+    h2 {  margin: 32px 0 24px; }
+    p { }
     .author { padding-top: 24px; }
   }
 
   .line { border-right: 1px solid $primary-color; }
-
   .sidebar {
-    width: 40%;
-    padding: 18px 0 32px;
-
+    display: grid;
+    grid-template-rows: auto;
     .item {
-      padding: 16px;
       border-bottom: 1px solid $primary-color;
       display: flex;
-      font-size: 1.8rem;
 
+      padding: 16px;
+
+      &:first-child {padding-top: 0;}
       .item-img {
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         margin-right: 12px;
         width: 272px;
-        height: clamp(100px, 22vh, 272px);
+      }
+
+      .img-1 {background-image: url("../source/images/information-orientation.jpg");}
+      .img-2 {background-image: url("../source/images/information-campus.jpg");}
+      .img-3 {background-image: url("../source/images/information-guest-lecture.jpg");}
+      .img-4 {background-image: url("../source/images/information-orientation.jpg");}
+      .img-5 {background-image: url("../source/images/information-campus.jpg");}
+
+      .img-1, .img-2, .img-3, .img-4, .img-5 {
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
       }
 
       .card-text {
         margin: 0 auto;
         align-self: center;
         line-height: 36px;
-
-        h3 { font-size: 2.4rem; }
+        h3 { }
         a { text-decoration: none; color: $link-color; }
       }
     }
-
     .item:nth-child(3) { background-color: $primary-color; }
   }
 }
@@ -144,33 +152,23 @@ header .navbar {
 .courses {
   text-align: center;
   background-color: $primary-color;
-
-  h2 {
-    @extend %text-style;
-    font-size: 3.6rem;
-  }
-
+  h2 { color: $secondary-color; }
   .courses-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 32px 72px;
     gap: 32px;
-
-    a {
+    a{
       text-decoration: none;
-
       .course-card {
         background: white;
         text-align: left;
-
         img { width: 100%; }
-
         .courses-text {
           padding: 16px;
-          @extend %text-style;
-
-          h3 { font-size: 2.2rem; }
-          p:nth-child(2) { padding: 8px 0; }
+          color: $secondary-color;
+          h3 {  }
+          p:nth-child(2){ padding: 12px 0; }
         }
       }
     }
@@ -178,69 +176,74 @@ header .navbar {
 }
 
 .media-sec {
-  h2 {
-    @extend %text-style;
-    font-size: 3.6rem;
-    text-align: center;
-    padding-top: 32px;
-  }
-
+  h2 { color: $secondary-color;  text-align: center; padding-top: 32px; }
   .media-blog {
-    display: flex;
+    display: grid;
+    grid-template-columns: 60% 40%;
     background: white;
-    @extend %text-style;
+    color: $secondary-color;
+    .media {
+      padding: 32px 24px;
+      position: relative;
+      iframe{ width: 100%; height: 600px;}
+      h2 {  margin: 32px 0 24px; text-align: left; }
+      p {  }
+    }
   }
-
   .sidebar {
-    width: 40%;
     padding: 32px 0;
-
     .item {
       padding: 16px;
       display: flex;
-      font-size: 1.8rem;
 
-      .item-img { width: 35%; }
+      .item-img{
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-right: 12px;
+        width: 272px;
+      }
+
+      .img-1, .img-2, .img-3, .img-4, .img-5 {
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+      }
+
+      .img-4 {background-image: url("../source/images/information-orientation.jpg");}
+      .img-5 {background-image: url("../source/images/information-campus.jpg");}
 
       .card-text {
         margin: 0 auto;
         align-self: center;
         line-height: 36px;
         padding-left: 12px;
-
-        h3 { font-size: 2.4rem; }
+        h3 {}
         a { text-decoration: none; color: $link-color; }
       }
     }
-
     .item:nth-child(1) { background-color: $primary-color; }
   }
 }
 
-footer {
+footer{
   display: flex;
   justify-content: space-between;
   padding: 0 24px;
 
-  .footer-list ul {
+
+  .footer-list ul{
     list-style: none;
     display: flex;
     gap: 16px;
 
-    a {
+    a{
       text-decoration: none;
       color: $primary-color;
     }
   }
 }
-
 @media (max-width: 1380px) {
-  .hero {
-    .hero-text {
-      width: 35%;
-      h1 { font-size: 4rem; }
-    }
-  }
 
   .content {
     .sidebar {
@@ -267,19 +270,18 @@ footer {
 
 @media (max-width: 980px) {
   .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
     .hero-text {
-      h1 {
-        font-size: 3.6rem;
-      }
-
+      width: 100%;
       p {
-        font-size: 1.8rem;
         margin-bottom: 24px;
       }
     }
   }
 
   .content {
+    grid-template-columns: 1fr;
     .card {
       display: none;
     }
@@ -334,8 +336,9 @@ footer {
     }
 
     .media-blog {
+      grid-template-columns: 1fr;
       .media {
-        width: 100%;
+        width: auto;
       }
     }
   }
@@ -348,6 +351,7 @@ footer {
 .content {
   .sidebar {
     .item {
+
       border-bottom: 0;
 
       &.img-1 {
@@ -371,22 +375,23 @@ footer {
 }
 
 @media (max-width: 760px) {
+
   header .navbar {
     justify-content: center;
 
-    .logo { display: none; }
-    nav ul {
+    .logo{display: none;}
+      nav ul {
       align-items: end;
       gap: 60px;
-
-      li {
+      li{
         display: none;
       }
 
-      i {
+      i{
         display: flex;
         justify-content: space-between;
       }
+
     }
   }
 
@@ -396,11 +401,10 @@ footer {
     padding: 0;
 
     .hero-text {
-      width: 100%;
+      width: auto;
       padding: 32px 16px;
 
       h1 {
-        font-size: 3rem;
         padding-bottom: 32px;
         line-height: 40px;
       }
@@ -425,7 +429,6 @@ footer {
 
     h2 {
       padding-top: 32px;
-      font-size: 2.4rem;
       border-top: 1px solid $primary-color;
     }
 
@@ -451,10 +454,6 @@ footer {
             p {
               display: none;
             }
-
-            h3 {
-              font-size: 1.8rem;
-            }
           }
         }
       }
@@ -470,13 +469,13 @@ footer {
 
     h2 {
       padding-top: 32px;
-      font-size: 2.4rem;
+
       border-top: 1px solid $primary-color;
     }
   }
 
   .company,
   footer .footer-list ul a {
-    font-size: 1.2rem;
+
   }
 }
