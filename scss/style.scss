@@ -53,13 +53,14 @@ header .navbar {
     }
 
     a {
+
       text-decoration: none;
       color: $secondary-color;
     }
   }
 }
 
-.hero, .content, .courses, .media {
+.hero, .courses, .media {
   padding: 32px 24px;
 }
 
@@ -78,7 +79,7 @@ header .navbar {
     color: $secondary-color;
     align-self: center;
     width: 80%;
-    h1 { padding-bottom: 24px}
+    h1 { padding-bottom: 24px; }
     p { margin-bottom: 24px; }
     button {
       color: white;
@@ -98,11 +99,14 @@ header .navbar {
 
 .content {
   display: grid;
-  grid-template-columns: 60% 1% 40%;
+  grid-template-columns: 60% 1% 39%;
+  padding: 32px 0;
   background: white;
   color: $secondary-color;
 
   .card {
+    padding-left: 24px;
+
     img { width: 100%; }
     h2 {  margin: 32px 0 24px; }
     .author { padding-top: 24px; }
@@ -110,12 +114,9 @@ header .navbar {
 
   .line { border-right: 1px solid $primary-color; }
   .sidebar {
-    display: grid;
-    grid-template-rows: auto;
     .item {
       border-bottom: 1px solid $primary-color;
       display: flex;
-
       padding: 16px;
 
       &:first-child {padding-top: 0;}
@@ -143,7 +144,6 @@ header .navbar {
         margin: 0 auto;
         align-self: center;
         line-height: 36px;
-        h3 { }
         a { text-decoration: none; color: $link-color; }
       }
     }
@@ -314,8 +314,6 @@ footer{
       .line {
         border-right: 0;
       }
-
-      padding: 0;
     }
   }
 
@@ -350,7 +348,8 @@ footer{
 .content {
   .sidebar {
     .item {
-      border-bottom: 0;
+
+      border-bottom: none;
 
       &.img-1 {
         background-image: url("../source/images/information-orientation-mobile.jpg");
@@ -373,6 +372,7 @@ footer{
 }
 
 @media (max-width: 760px) {
+
   header .navbar {
     justify-content: center;
 
@@ -466,7 +466,13 @@ footer{
 
     h2 {
       padding-top: 32px;
+
       border-top: 1px solid $primary-color;
     }
+  }
+
+  .company,
+  footer .footer-list ul a {
+
   }
 }
