@@ -11,6 +11,10 @@ h1 {
 }
 
 h2 {
+  @include adaptive-text(24px, 48px);
+}
+
+h3 {
   @include adaptive-text(20px, 36px);
 }
 
@@ -49,7 +53,6 @@ header .navbar {
     }
 
     a {
-
       text-decoration: none;
       color: $secondary-color;
     }
@@ -102,7 +105,6 @@ header .navbar {
   .card {
     img { width: 100%; }
     h2 {  margin: 32px 0 24px; }
-    p { }
     .author { padding-top: 24px; }
   }
 
@@ -167,7 +169,6 @@ header .navbar {
         .courses-text {
           padding: 16px;
           color: $secondary-color;
-          h3 {  }
           p:nth-child(2){ padding: 12px 0; }
         }
       }
@@ -187,7 +188,6 @@ header .navbar {
       position: relative;
       iframe{ width: 100%; height: 600px;}
       h2 {  margin: 32px 0 24px; text-align: left; }
-      p {  }
     }
   }
   .sidebar {
@@ -218,7 +218,6 @@ header .navbar {
         align-self: center;
         line-height: 36px;
         padding-left: 12px;
-        h3 {}
         a { text-decoration: none; color: $link-color; }
       }
     }
@@ -351,7 +350,6 @@ footer{
 .content {
   .sidebar {
     .item {
-
       border-bottom: 0;
 
       &.img-1 {
@@ -375,12 +373,11 @@ footer{
 }
 
 @media (max-width: 760px) {
-
   header .navbar {
     justify-content: center;
 
     .logo{display: none;}
-      nav ul {
+    nav ul {
       align-items: end;
       gap: 60px;
       li{
@@ -469,13 +466,11 @@ footer{
 
     h2 {
       padding-top: 32px;
-
       border-top: 1px solid $primary-color;
     }
   }
 
   .company,
   footer .footer-list ul a {
-
   }
 }
