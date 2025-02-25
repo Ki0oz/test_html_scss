@@ -1,0 +1,86 @@
+@import "color";
+
+$spacing-small: 8px;
+$spacing-medium: 12px;
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+
+  &:target {
+    display: flex;
+  }
+
+  .form-container {
+    background: white;
+    padding: 20px;
+    width: 600px;
+    position: relative;
+    h2{
+      color: $secondary-color;
+      padding-bottom: $spacing-medium;
+    }
+    form{
+      display: grid;
+      label{
+        color: $secondary-color;
+      }
+      input{
+        margin-bottom: $spacing-medium;
+        padding: $spacing-small;
+      }
+      textarea{
+        padding: $spacing-small;
+      }
+      #colors{
+        margin-bottom: $spacing-medium;
+        padding: $spacing-small;
+      }
+      .checkbox-group{
+        padding: $spacing-small;
+        label{
+          padding-right:$spacing-small;
+        }
+      }
+      .checkbox-group{
+        padding: $spacing-small;
+      }
+    }
+  }
+
+  .close {
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    font-size: 36px;
+    text-decoration: none;
+    color: $secondary-color;
+    font-weight: bold;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background: $secondary-color;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+
+    &:hover {
+      background: $link-color;
+    }
+  }
+}

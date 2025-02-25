@@ -36,7 +36,7 @@
             <div class="hero-text">
                 <h1>Learn something new everyday</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <button>Start here</button>
+                <a href="#formModal" class="open-btn"><button>Start now</button></a>
             </div>
         </section>
 
@@ -149,26 +149,89 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, tempore!</p>
                     </div>
                 </div>
-            <div class="sidebar">
-                <div class="item">
-                    <img src="source/images/information-orientation.jpg" alt="Orientation">
-                    <div class="card-text">
-                        <h3>Orientation date</h3>
-                        <p>Tue 10/11 & Wed 10/12: 8am-3pm</p>
+                <div class="sidebar">
+                    <div class="item">
+                        <div class="item-img img-4"></div>
+                        <div class="card-text">
+                            <h3>Orientation date</h3>
+                            <p>Tue 10/11 & Wed 10/12: 8am-3pm</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img img-5"></div>
+                        <div class="card-text">
+                            <h3>Orientation date</h3>
+                            <p>Tue 10/11 & Wed 10/12: 8am-3pm</p>
+                        </div>
                     </div>
                 </div>
-                <div class="item">
-                    <img src="source/images/information-campus.jpg" alt="Campus">
-                    <div class="card-text">
-                        <h3>Orientation date</h3>
-                        <p>Tue 10/11 & Wed 10/12: 8am-3pm</p>
-                    </div>
-                </div>
-            </div>
             </div>
         </section>
 
+        <div id="formModal" class="modal">
+            <div class="form-container">
+                <a href="#" class="close">&times;</a>
+                <h2>Registration Form</h2>
+                <form>
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="firstname" name="firstname" placeholder="First name">
+
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="lastname" name="lastname" placeholder="Last name">
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Email">
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Password">
+
+                    <label for="colors">Select Style:</label>
+                    <select id="colors" name="color">
+                        <option value="" disabled selected>Choose a style</option>
+                        <option value="variant1">Black</option>
+                        <option value="variant2">White</option>
+                        <option value="variant3">Black</option>
+                        <option value="variant4">White</option>
+                        <option value="variant5">Black</option>
+                        <option value="variant6">White</option>
+                    </select>
+
+                    <label>Select your skills:</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="html" name="skills" value="HTML">
+                        <label for="html">HTML</label>
+
+                        <input type="checkbox" id="css" name="skills" value="CSS">
+                        <label for="css">CSS</label>
+
+                        <input type="checkbox" id="js" name="skills" value="JavaScript">
+                        <label for="js">SASS/SCSS</label>
+
+                        <input type="checkbox" id="python" name="skills" value="Python">
+                        <label for="python">JavaScript</label>
+                    </div>
+
+                    <label>Test:</label>
+                    <div class="checkbox-group">
+                        <input type="radio" id="beginner" name="test" value="beginner">
+                        <label for="beginner">Beginner</label>
+
+                        <input type="radio" id="intermediate" name="test" value="intermediate">
+                        <label for="intermediate">Intermediate</label>
+
+                    </div>
+
+                    <label for="bio">Text test:</label>
+                    <textarea id="bio" name="bio" rows="4" placeholder="Test"></textarea>
+
+                    <button type="submit">Go!</button>
+                </form>
+            </div>
+        </div>
+
     </div>
+
+
 
 </main>
 
